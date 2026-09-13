@@ -6,17 +6,49 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint app components lib states styles tests utils",
+    "lint:fix": "eslint . --fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "next": "16.3.4",
+    "prop-types": "^15.8.1",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "react-redux": "^9.3.0",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "latest",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/addon-docs": "^10.6.0",
+    "@storybook/addon-vitest": "^10.6.0",
+    "@storybook/nextjs-vite": "^10.6.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^26.4.1",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
     "babel-plugin-react-compiler": "1.0.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.4"
+    "eslint": "^10.10.0",
+    "eslint-config-dicodingacademy": "^0.9.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-storybook": "^10.6.0",
+    "globals": "^17.12.0",
+    "jest": "^30.5.1",
+    "jest-environment-jsdom": "^30.5.1",
+    "playwright": "latest",
+    "storybook": "^10.6.0",
+    "vite": "latest",
+    "vitest": "latest"
   },
   "packageManager": "pnpm@12.3.4"
 }
