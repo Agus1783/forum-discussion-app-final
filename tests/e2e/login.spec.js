@@ -8,6 +8,16 @@ test.use({
   },
 });
 
+test.beforeEach(async ({ page }) => {
+  page.on('console', (message) => {
+    console.log(`[browser:${message.type()}] ${message.text()}`);
+  });
+
+  page.on('pageerror', (error) => {
+    console.log(`[pageerror] ${error.message}`);
+  });
+});
+
 test('should login successfully', async ({ page }) => {
   const userEmail = process.env.E2E_USER_EMAIL;
   const password = process.env.E2E_PASSWORD;
@@ -30,6 +40,12 @@ test('should login successfully', async ({ page }) => {
   await page.getByRole('button', {
     name: /login/i,
   }).click();
+
+  await expect(
+    page.getByText(/invalid|gagal|error/i),
+  ).not.toBeVisible({
+    timeout: 3000,
+  });
 
   await expect(page).toHaveURL(/\/$/);
 
